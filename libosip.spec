@@ -1,17 +1,17 @@
 Summary:	The GNU oSIP library
 Summary(pl):	Biblioteka GNU oSIP
 Name:		libosip
-Version:	0.8.9
+Version:	0.9.7
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/osip/%{name}-%{version}.tar.gz
-Patch0:		%{name}-am_fixes.patch
-Patch1:		%{name}-docbook2man.patch
+# Source0-md5:	1c97d2bbc042ba318b1ad422b6109537
+Patch0:		%{name}-docbook2man.patch
 URL:		http://www.fsf.org/software/osip/osip.html
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
+BuildRequires:	libtool >= 1:1.4.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -52,10 +52,10 @@ Statyczna wersja biblioteki GNU oSIP.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
-rm -f scripts/missing acinclude.m4
+rm -f scripts/missing
+mv -f aclocal.m4 acinclude.m4
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -73,6 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+mv -f $RPM_BUILD_ROOT%{_mandir}/man{1,3}
+mv -f $RPM_BUILD_ROOT%{_mandir}/man3/osip.{1,3}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -81,14 +84,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS BUGS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog NEWS README TODO
-%attr(744,root,root) %{_libdir}/lib*.la
+%{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/*
+%{_mandir}/man3/*.3*
 
 %files static
 %defattr(644,root,root,755)
