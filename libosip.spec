@@ -10,7 +10,7 @@ Patch0:		%{name}-docbook2man.patch
 URL:		http://www.fsf.org/software/osip/osip.html
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool >= 1.4.3
+BuildRequires:	libtool >= 1:1.4.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
