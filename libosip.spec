@@ -33,7 +33,7 @@ Summary:	The GNU oSIP library - development files
 Summary(pl):	Pliki dla programistów u¿ywaj±cych GNU oSIP
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
-Obsoletes:      libosip2-devel
+Obsoletes:	libosip2-devel
 
 %description devel
 Development files for the GNU oSIP library.
@@ -46,7 +46,7 @@ Summary:	The GNU oSIP library - static version
 Summary(pl):	Statyczna biblioteka GNU oSIP
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
-Obsoletes:      libosip2-static
+Obsoletes:	libosip2-static
 
 %description static
 Static version of the GNU oSIP library.
