@@ -7,6 +7,7 @@ License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/osip/%{name}-%{version}.tar.gz
 Patch0:		%{name}-am_fixes.patch
+Patch1:		%{name}-docbook2man.patch
 URL:		http://www.fsf.org/software/osip/osip.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -51,6 +52,7 @@ Statyczna wersja biblioteki GNU oSIP.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 rm -f scripts/missing acinclude.m4
@@ -84,7 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README TODO
-%attr(755,root,root) %{_libdir}/lib*.la
+%attr(744,root,root) %{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/*
 
