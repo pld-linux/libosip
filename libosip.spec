@@ -6,6 +6,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/osip/%{name}-%{version}.tar.gz
+Patch0:		%{name}-am_fixes.patch
 URL:		http://www.fsf.org/software/osip/osip.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -49,13 +50,14 @@ Statyczna wersja biblioteki GNU oSIP.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-#rm -f scripts/missing acinclude.m4
-#%{__libtoolize}
-#%{__aclocal}
+rm -f scripts/missing acinclude.m4
+%{__libtoolize}
+%{__aclocal}
 %{__autoconf}
-#%{__automake}
+%{__automake}
 %configure \
 	--enable-semaphore \
 	--enable-pthread \
