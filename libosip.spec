@@ -1,6 +1,6 @@
 Summary:	The GNU oSIP library
 Name:		libosip
-Version:	0.8.3
+Version:	0.7.9
 Release:	1
 License:	GPL
 Group:		Libraries
@@ -42,7 +42,8 @@ Static version of the GNU oSIP library.
 aclocal
 automake -a -c
 autoconf
-%configure
+%configure \
+	--enable-semaphore 
 %{__make}
 
 %install
@@ -51,7 +52,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf AUTHORS BUGS NEWS README TODO
+gzip -9nf AUTHORS NEWS README TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
