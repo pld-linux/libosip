@@ -7,7 +7,9 @@ License:	GPL
 Group:		Libraries
 Source0:	http://osip.atosc.org/download/%{name}-%{version}.tar.gz
 URL:		http://osip.atosc.org/
+BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -49,6 +51,8 @@ Statyczna wersja biblioteki GNU oSIP.
 %setup -q
 
 %build
+rm -f missing
+%{__libtoolize}
 aclocal
 %{__automake}
 %{__autoconf}
@@ -62,8 +66,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf AUTHORS NEWS README TODO
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -76,7 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz doc/*.html
+%doc AUTHORS NEWS README TODO doc/*.html
 %attr(755,root,root) %{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/*
