@@ -51,11 +51,11 @@ Statyczna wersja biblioteki GNU oSIP.
 %setup -q
 
 %build
-rm -f scripts/missing acinclude.m4
-%{__libtoolize}
-%{__aclocal}
+#rm -f scripts/missing acinclude.m4
+#%{__libtoolize}
+#%{__aclocal}
 %{__autoconf}
-%{__automake}
+#%{__automake}
 %configure \
 	--enable-semaphore \
 	--enable-pthread \
