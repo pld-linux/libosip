@@ -1,0 +1,8 @@
+--- libosip-0.8.9/doc/Makefile.am~	Fri Oct 11 15:20:42 2002
++++ libosip-0.8.9/doc/Makefile.am	Fri Oct 11 15:20:42 2002
+@@ -3,4 +3,4 @@
+ man_MANS = osip.1
+ 
+ osip.1: osip.sgml
+-	docbook-to-man $< > $@
++	docbook2man $< > $@
