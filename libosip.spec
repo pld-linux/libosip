@@ -1,17 +1,16 @@
 Summary:	The GNU oSIP library
 Summary(pl):	Biblioteka GNU oSIP
 Name:		libosip
-Version:	0.8.9
+Version:	0.9.3
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/osip/%{name}-%{version}.tar.gz
-Patch0:		%{name}-am_fixes.patch
-Patch1:		%{name}-docbook2man.patch
+Patch0:		%{name}-docbook2man.patch
 URL:		http://www.fsf.org/software/osip/osip.html
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
+BuildRequires:	libtool >= 1.4.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -52,10 +51,9 @@ Statyczna wersja biblioteki GNU oSIP.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
-rm -f scripts/missing acinclude.m4
+rm -f scripts/missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -82,6 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
+%{_mandir}/man1/*.1*
 
 %files devel
 %defattr(644,root,root,755)
