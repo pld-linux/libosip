@@ -71,6 +71,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+mv -f $RPM_BUILD_ROOT%{_mandir}/man{1,3}
+mv -f $RPM_BUILD_ROOT%{_mandir}/man3/osip.{1,3}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -79,15 +82,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS BUGS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_mandir}/man1/*.1*
 
 %files devel
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog NEWS README TODO
 %{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/*
+%{_mandir}/man3/*.3*
 
 %files static
 %defattr(644,root,root,755)
