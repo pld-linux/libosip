@@ -50,8 +50,8 @@ Statyczna wersja biblioteki GNU oSIP.
 
 %build
 aclocal
-automake -a -c -f
-autoconf
+%{__automake}
+%{__autoconf}
 %configure \
 	--enable-semaphore 
 %{__make}
