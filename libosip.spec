@@ -2,7 +2,7 @@ Summary:	The GNU oSIP library
 Summary(pl):	Biblioteka GNU oSIP
 Name:		libosip
 Version:	0.9.7
-Release:	1
+Release:	0.1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/osip/%{name}-%{version}.tar.gz
@@ -11,7 +11,7 @@ Patch0:		%{name}-docbook2man.patch
 URL:		http://www.fsf.org/software/osip/osip.html
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool >= 1:1.4.3
+BuildRequires:	libtool >= 1:1.4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
