@@ -2,7 +2,7 @@ Summary:	The GNU oSIP library
 Summary(pl):	Biblioteka GNU oSIP
 Name:		libosip
 Version:	0.9.7
-Release:	3
+Release:	4
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/osip/%{name}-%{version}.tar.gz
@@ -15,6 +15,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool >= 1:1.4.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	libosip2
 
 %description
 This is "the GNU oSIP library" (for Omnibus SIP). It has been designed
@@ -32,6 +33,7 @@ Summary:	The GNU oSIP library - development files
 Summary(pl):	Pliki dla programistów u¿ywaj±cych GNU oSIP
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
+Obsoletes:      libosip2-devel
 
 %description devel
 Development files for the GNU oSIP library.
@@ -44,6 +46,7 @@ Summary:	The GNU oSIP library - static version
 Summary(pl):	Statyczna biblioteka GNU oSIP
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
+Obsoletes:      libosip2-static
 
 %description static
 Static version of the GNU oSIP library.
