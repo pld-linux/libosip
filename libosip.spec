@@ -8,14 +8,12 @@ Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/osip/%{name}-%{version}.tar.gz
 # Source0-md5:	1c97d2bbc042ba318b1ad422b6109537
 Patch0:		%{name}-docbook2man.patch
-Patch1:		%{name}-automake.patch
-Patch2:		%{name}-nolibs.patch
+Patch1:		%{name}-nolibs.patch
 URL:		http://www.fsf.org/software/osip/osip.html
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool >= 1:1.4.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Obsoletes:	libosip2
 
 %description
 This is "the GNU oSIP library" (for Omnibus SIP). It has been designed
@@ -32,8 +30,7 @@ Protokó³ SIP (Session Initiation Protocol) jest opisany w RFC2543.
 Summary:	The GNU oSIP library - development files
 Summary(pl):	Pliki dla programistów u¿ywaj±cych GNU oSIP
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
-Obsoletes:	libosip2-devel
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Development files for the GNU oSIP library.
@@ -45,8 +42,7 @@ Pliki dla programistów u¿ywaj±cych biblioteki GNU oSIP.
 Summary:	The GNU oSIP library - static version
 Summary(pl):	Statyczna biblioteka GNU oSIP
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
-Obsoletes:	libosip2-static
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of the GNU oSIP library.
@@ -58,12 +54,12 @@ Statyczna wersja biblioteki GNU oSIP.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
+
+rm -f acinclude.m4
 
 %build
-rm -f scripts/missing
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I scripts
 %{__autoconf}
 %{__automake}
 %configure \
