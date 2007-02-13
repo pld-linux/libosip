@@ -1,5 +1,5 @@
 Summary:	The GNU oSIP library
-Summary(pl.UTF-8):   Biblioteka GNU oSIP
+Summary(pl.UTF-8):	Biblioteka GNU oSIP
 Name:		libosip
 Version:	0.9.7
 Release:	4
@@ -28,7 +28,7 @@ Protokół SIP (Session Initiation Protocol) jest opisany w RFC2543.
 
 %package devel
 Summary:	The GNU oSIP library - development files
-Summary(pl.UTF-8):   Pliki dla programistów używających GNU oSIP
+Summary(pl.UTF-8):	Pliki dla programistów używających GNU oSIP
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -40,7 +40,7 @@ Pliki dla programistów używających biblioteki GNU oSIP.
 
 %package static
 Summary:	The GNU oSIP library - static version
-Summary(pl.UTF-8):   Statyczna biblioteka GNU oSIP
+Summary(pl.UTF-8):	Statyczna biblioteka GNU oSIP
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
