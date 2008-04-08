@@ -5,7 +5,7 @@ Version:	0.9.7
 Release:	4
 License:	LGPL
 Group:		Libraries
-Source0:	ftp://ftp.gnu.org/gnu/osip/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnu.org/gnu/osip/%{name}-%{version}.tar.gz
 # Source0-md5:	1c97d2bbc042ba318b1ad422b6109537
 Patch0:		%{name}-docbook2man.patch
 Patch1:		%{name}-nolibs.patch
